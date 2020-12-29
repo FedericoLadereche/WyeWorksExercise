@@ -1,8 +1,8 @@
-const spotify = require('./spotify');
-const processFile = require('./parser');
-const createAlbums = require('./utils');
-const trello = require('./trello');
-const { spotifyClientId, spotifyClientSecret, artistId, filePath, trelloClientId, trelloClientSecret, boardName } = require('./config');
+const spotify = require('../src/lib/spotify');
+const processFile = require('../src/lib/parser');
+const createAlbums = require('../src/lib/utils');
+const trello = require('../src/lib/trello');
+const { spotifyClientId, spotifyClientSecret, artistId, filePath, trelloClientId, trelloClientSecret, boardName } = require('../src/lib/config');
 
 const main = async () => {
     try {
