@@ -10,7 +10,7 @@ const createArtistBoardWithListAndCards = async (clientKey, token, boardName, al
     try {
         const board = await createBoard(clientKey, token, escape(boardName));
 
-        for (const decade in albums) {
+        await Promise.all(Object.keys(albums).map(async (decade) => {
             let list = await createList(clientKey, token, board.id, escape(decade));
 
             for (const album in albums[decade]) {
@@ -19,7 +19,7 @@ const createArtistBoardWithListAndCards = async (clientKey, token, boardName, al
                     await createAttachmentCoverOnAcard(clientKey, token, card.id, 'Cover', albums[decade][album].cover);
                 }
             }
-        }
+        }));
     } catch (error) {
         console.log(error);
     }
